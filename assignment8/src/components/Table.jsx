@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import TableRow from './TableRow';
 import React, {Component} from 'react';
 
@@ -7,9 +6,10 @@ class Table extends Component{
         super(props);
 
         this.state = {
-            row: 0,
-            col: 0,
-            color: ''
+            rows: 0,
+            columns: 0,
+            color: "",
+            coloring: false
 
         }
 
@@ -19,20 +19,30 @@ class Table extends Component{
     }
 
     AddRow(){
-        this.setState({row: this.state.row + 1})
+        this.setState({rows: this.state.rows + 1})
     }
 
     AddColumn(){
-        this.setState({col: this.state.col + 1})
+        this.setState({columns: this.state.columns + 1})
     }
 
     ChangeColor(event){
         this.setState({color: event.target.value})
     }
 
+
     render (){
+        let tableRow = [];
+        for (let i = 0; i < this.state.row; i++){
+            tableRow.push(
+                <TableRow
+                    key = {i}
+                    columns = {this.state.columns}
+                />
+            );
+        }
         return(
-            <div className="Table">
+            <div className="selection">
                 <button className="button" onClick={this.AddRow}> Add Row </button>
                 <button className="button" onClick={this.AddColumn}> Add Column </button>
                 <select onChange={this.ChangeColor}>
@@ -41,7 +51,12 @@ class Table extends Component{
                     <option value="gray"> Gray </option>
                     <option value="yellow"> Yellow </option>
                 </select>
-            </div>
+            <table className="Grid">
+                <tbody> 
+                {tableRow} 
+                </tbody>
+            </table>
+            </div>   
         )
     }
 }

@@ -8,9 +8,17 @@ class TableRow extends Component {
     }    
 
     render(){
+        let tableColumn = [];
+        for (let i = 0; i < this.props.columns + 1; i++){
+            tableColumn.push(
+                <TableCell
+                    key = {i}
+                />
+            );
+        }
         return(
-            <tr className="tableRow">
-                {this.props.cells}
+            <tr>
+                {tableColumn}
             </tr>
         )
     }

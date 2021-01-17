@@ -9,11 +9,11 @@ class TableCell extends Component {
         return(
             <td 
                 className="tableCell"
-                // onMouseUp = {this.props.mouseUp}
-                // onMouseDown = {this.props.mouseDown}
+                //onMouseUp = {this.props.mouseUp}
+                //onMouseDown = {this.props.mouseDown}
                 // onMouseEnter = {this.props.mouseEnter}
                 // onClick = {this.props.onClick}
-                > 
+                >
             </td>
          )
     }
