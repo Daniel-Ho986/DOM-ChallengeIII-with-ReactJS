@@ -1,4 +1,4 @@
-<b>I tried to run it, but it was not showing anything.</b>
+<b>I tried to run it, but it was not showing the grid.</b>
 
 Goal:
 This is another exercise to further demonstrate an understanding of HTML, CSS, JS, DOM manipulation, and handling user events with ReactJS. This is also an opportunity to for improving organization in a React application.
