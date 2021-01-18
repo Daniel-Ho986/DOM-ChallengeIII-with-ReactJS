@@ -1,3 +1,5 @@
+<b>I tried to run it, but it was not showing anything.</b>
+
 Goal:
 This is another exercise to further demonstrate an understanding of HTML, CSS, JS, DOM manipulation, and handling user events with ReactJS. This is also an opportunity to for improving organization in a React application.
 Direction:
