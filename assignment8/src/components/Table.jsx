@@ -32,15 +32,13 @@ class Table extends Component{
         })
     }
 
-    ChangeColor(event){
-        event.preventDefault();       
+    ChangeColor(event){     
         this.setState({
             color: event.target.value
         })
     }
 
     setColor(event){
-        event.preventDefault();
         event.target.style.backgroundColor = this.state.color;
     }
 
@@ -74,6 +72,10 @@ class Table extends Component{
                     <option value="brown"> Brown </option>
                     <option value="gray"> Gray </option>
                     <option value="yellow"> Yellow </option>
+                    <option value="blue"> Blue </option>
+                    <option value="pink"> Pink </option>
+                    <option value="orange"> Orange </option>
+                    <option value="light blue"> Light Blue</option>
                 </select>
              
                 <table className="table"> 
