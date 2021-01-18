@@ -1,5 +1,4 @@
 import React, {Component}from 'react';
-import TableCell from './TableCell';
 
 //Create row
 class TableRow extends Component {
@@ -8,17 +7,9 @@ class TableRow extends Component {
     }    
 
     render(){
-        let tableColumn = [];
-        for (let i = 0; i < this.props.columns + 1; i++){
-            tableColumn.push(
-                <TableCell
-                    key = {i}
-                />
-            );
-        }
         return(
             <tr>
-                {tableColumn}
+                {this.props.tablerows}
             </tr>
         )
     }

@@ -1,46 +1,70 @@
 import TableRow from './TableRow';
 import React, {Component} from 'react';
+import TableCell from './TableCell';
 
 class Table extends Component{
     constructor(props){
         super(props);
 
         this.state = {
-            rows: 0,
-            columns: 0,
+            rows: 1,
+            columns: 1,
             color: "",
-            coloring: false
 
         }
 
         this.AddColumn = this.AddColumn.bind(this);
         this.AddRow = this.AddRow.bind(this);
         this.ChangeColor = this.ChangeColor.bind(this);
+        this.setColor = this.setColor.bind(this);
+        this.Grid = this.Grid.bind(this);
     }
 
     AddRow(){
-        this.setState({rows: this.state.rows + 1})
+        this.setState({
+            rows: this.state.rows + 1
+        })
     }
 
     AddColumn(){
-        this.setState({columns: this.state.columns + 1})
+        this.setState({
+            columns: this.state.columns + 1
+        })
     }
 
     ChangeColor(event){
-        this.setState({color: event.target.value})
+        event.preventDefault();       
+        this.setState({
+            color: event.target.value
+        })
+    }
+
+    setColor(event){
+        event.preventDefault();
+        event.target.style.backgroundColor = this.state.color;
+    }
+
+    Grid(){
+        let table = []
+        for(let i = 0; i < this.state.rows; i++){
+            let row = []
+            for(let j = 0; j < this.state.columns; j++)
+                row.push(
+                    <TableCell 
+                        onClick = {this.color}
+                    />
+                )
+            table.push(
+                <TableRow 
+                tablerows={row}
+                />
+            )
+        }
+        return table;
     }
 
 
     render (){
-        let tableRow = [];
-        for (let i = 0; i < this.state.row; i++){
-            tableRow.push(
-                <TableRow
-                    key = {i}
-                    columns = {this.state.columns}
-                />
-            );
-        }
         return(
             <div className="selection">
                 <button className="button" onClick={this.AddRow}> Add Row </button>
@@ -51,12 +75,11 @@ class Table extends Component{
                     <option value="gray"> Gray </option>
                     <option value="yellow"> Yellow </option>
                 </select>
-            <table className="Grid">
-                <tbody> 
-                {tableRow} 
-                </tbody>
-            </table>
-            </div>   
+             
+                <table className="table"> 
+                    {this.Grid()} 
+                </table>
+            </div>  
         )
     }
 }
